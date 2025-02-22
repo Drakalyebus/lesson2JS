@@ -11,11 +11,31 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/users/:id', async (req, res) => {
-    await res.send((JSON.parse(await fsExtend.readFile(getPath('users.json'), 'utf-8'))).find((user) => user.id == req.params.id));
+    await res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <textarea id="users">${JSON.stringify((JSON.parse(await fsExtend.readFile(getPath('users.json'), 'utf-8'))).find((user) => user.id == req.params.id))}</textarea>
+</body>
+</html>`);
 });
 
 app.get('/users', async (req, res) => {
-    await res.sendFile(getPath('users.json'));
+    await res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <textarea id="users">${await fsExtend.readFile(getPath('users.json'), 'utf-8')}</textarea>
+</body>
+</html>`);
 });
 
 app.get('/search', async (req, res) => {
