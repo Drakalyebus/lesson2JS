@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo</title>
+    <title>Галерея</title>
 </head>
 <body>
-    <button id="post">Новая задача</button>
-    <ul id="tasks"></ul>
+    <button id="get">Получить фотографии</button>
+    <button id="mix">Перемешать</button>
+    <button id="sort">Сортировать по названию</button>
+    <br>
+    <form action="#" style="border: 1px solid grey; width: fit-content; height: fit-content; padding: 1em; margin: 1em;">
+        <input id="name" type="text" placeholder="Название">
+        <input id="url" type="text" placeholder="URL">
+        <button id="post" type="submit">Добавить</button>
+    </form>
+    <ul id="images" style="display: flex; justify-content: start; align-items: center; flex-wrap: nowrap; gap: 5em;"></ul>
     <script type="module" src="script.js"></script>
 </body>
 </html>

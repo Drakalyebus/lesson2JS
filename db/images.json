@@ -1,0 +1,24 @@
+{
+  "IMAGES": [
+    {
+      "id": "2a2d",
+      "name": "цитата жака фреско",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRexnNQeRh1fK1HJGtA3Mqn6XmNfb_NjlwAUQ&s"
+    },
+    {
+      "id": "9622",
+      "name": "что-то",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzAvh6Yjcvcv0S2bHjkn2eXtDG4VW7AO0BPw&s"
+    },
+    {
+      "id": "c205",
+      "name": "бубка гоб",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi3vlT5dDAjGcfFMvv4WTu5P-go2UphNmvbQ&s"
+    },
+    {
+      "id": "2481",
+      "name": "тоже что-то",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOX3H1_o3bTBEjFJyEQMsif0nk-WqzgG5x8A&s"
+    }
+  ]
+}
