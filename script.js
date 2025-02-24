@@ -11,40 +11,44 @@ const imagesEl = document.getElementById('images');
 let images = [];
 let got = false;
 
-getEl.addEventListener('click', async (e) => {
-    e.preventDefault();
-    images = await Req.get('http://localhost:3000/IMAGES');
-    got = true;
+function render() {
     imagesEl.innerHTML = '';
     images.forEach((image) => {
         imagesEl.innerHTML += `<li><img style="height: 5em;" src="${image.url}" alt="${image.name}">${image.name}</li>`
     });
+    Array.from(imagesEl.children).forEach((image, i) => {
+        image.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await Req.delete('http://localhost:3000/IMAGES', images[i].id);
+            images = await Req.get('http://localhost:3000/IMAGES');
+            render();
+        });
+    });
+}
+
+getEl.addEventListener('click', async (e) => {
+    e.preventDefault();
+    images = await Req.get('http://localhost:3000/IMAGES');
+    got = true;
+    render();
 });
 
 mixEl.addEventListener('click', async (e) => {
     e.preventDefault();
     images.sort(() => Math.random() > 0.5 ? 1 : -1);
-    imagesEl.innerHTML = '';
-    images.forEach((image) => {
-        imagesEl.innerHTML += `<li><img style="height: 5em;" src="${image.url}" alt="${image.name}">${image.name}</li>`
-    });
+    render();
 });
 
 sortEl.addEventListener('click', async (e) => {
     e.preventDefault();
     images.sort((a, b) => a.name > b.name ? 1 : -1);
     imagesEl.innerHTML = '';
-    images.forEach((image) => {
-        imagesEl.innerHTML += `<li><img style="height: 5em;" src="${image.url}" alt="${image.name}">${image.name}</li>`
-    });
+    render();
 });
 
 postEl.addEventListener('click', async (e) => {
     e.preventDefault();
     await Req.post('http://localhost:3000/IMAGES', {name: nameEl.value, url: urlEl.value});
     images = await Req.get('http://localhost:3000/IMAGES');
-    imagesEl.innerHTML = '';
-    images.forEach((image) => {
-        imagesEl.innerHTML += `<li><img style="height: 5em;" src="${image.url}" alt="${image.name}">${image.name}</li>`
-    });
+    render();
 });
