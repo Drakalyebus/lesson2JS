@@ -2,19 +2,20 @@
   "name": "dz-po-js",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon index.js"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "dz-po-js": "file:",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
