@@ -5,8 +5,11 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
+import helmet from "helmet";
 
 import filePath from "./controllers/filePath.js";
+
+import limiter from "./middlewares/limiter.js";
 
 import userRouter from "./routes/user.js";
 import technicalRouter from "./routes/technical.js";
@@ -20,9 +23,12 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use(helmet());
+app.use(limiter);
+
 app.use(cors({
-    origin: [env.CLIENT_URL],
-    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"]
+    origin: ['http://localhost:3000'],
+    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE']
 }));
 
 app.use(express.json());

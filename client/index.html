@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market</title>
+</head>
+<body>
+    <h1>Добавить товар</h1>
+    <form action="#">
+        <input type="text" placeholder="Укажите название..." id="name">
+        <input type="text" placeholder="Укажите стоимость..." id="price">
+        <input type="checkbox" id="sale"> Товар на акции (-25%)?
+        <button type="submit" id="add">Добавить</button>
+    </form>
+    <h1>Акционные товары</h1>
+    <ul id="saleProducts"></ul>
+    <h1>Все товары</h1>
+    <ul id="allProducts"></ul>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
