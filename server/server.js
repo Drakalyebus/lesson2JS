@@ -1,10 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs/promises';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const env = process.env;
 
 const app = express();
 
-const allowed = ['http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:3000'];
+const allowed = [env.CLIENT_URL];
 app.use(cors({
     methods: ['GET', 'POST', 'DELETE'],
     origin: allowed
@@ -38,4 +43,4 @@ app.delete('/users/:id', async (req, res) => {
     res.sendStatus(200);
 });
 
-app.listen(3000);
+app.listen(env.PORT);
