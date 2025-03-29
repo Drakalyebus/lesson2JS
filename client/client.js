@@ -7,7 +7,7 @@ const ageEl = document.getElementById('age');
 const cityEl = document.getElementById('city');
 const addEl = document.getElementById('add');
 
-const serverUrl = 'http://localhost:3000';
+const serverUrl = 'https://lesson2js-server.onrender.com';
 
 let timeout = setTimeout(() => {}, 0);
 
