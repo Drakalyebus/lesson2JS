@@ -1,21 +1,20 @@
 import React from "react";
 
+import Form from "../Form/Form.jsx";
 import List from "../List/List.jsx";
-import View from "../View/View.jsx";
+import Actions from "../Actions/Actions.jsx";
 
 import styles from "./Container.module.css";
 
 function Container() {
-    const [items, setItems] = React.useState([
-        { item: { name: "Item 1" }, style: { color: "red" } },
-        { item: { name: "Item 2" }, style: { color: "green" } },
-        { item: { name: "Item 3" }, style: { color: "blue" } },
-    ]);
+    const [users, setUsers] = React.useState([]);
+    const [sortedUsers, setSortedUsers] = React.useState(users);
 
     return (
         <div className={styles.container}>
-            <List items={items} setItems={setItems} />
-            <View />
+            <Form setUsers={setUsers} setSortedUsers={setSortedUsers} users={users} />
+            <List users={sortedUsers} />
+            <Actions setSortedUsers={setSortedUsers} users={users} />
         </div>
     )
 }

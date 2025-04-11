@@ -1,15 +1,14 @@
 import React from "react";
-import { v4 } from "uuid";
 
-import Item from "../Item/Item.jsx";
+import User from "../User/User.jsx";
 
 import styles from "./List.module.css";
 
-function List({ items, setItems }) {
+function List({ users }) {
     return (
         <ul className={styles.list}>
-            {items.map((item) => (
-                <Item setItems={setItems} visual={item.style} key={v4()} item={item.item} />
+            {users.map(user => (
+                <User key={user.id} user={user} />
             ))}
         </ul>
     )
