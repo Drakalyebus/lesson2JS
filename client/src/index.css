@@ -1,0 +1,33 @@
+:root {
+  --primary: rgb(25, 25, 25);
+  --secondary: rgb(50, 50, 50);
+  --selected: darkslategrey;
+  --text: white;
+  --radius: 20px;
+  --padding: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  transition: 0.35s ease;
+  font-weight: 600;
+  font-family: 'system-ui';
+  color: var(--text);
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+#root {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
