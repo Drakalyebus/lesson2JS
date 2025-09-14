@@ -1,19 +1,20 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import MainLayout from './layouts/MainLayout/MainLayout'
-import Breeds from './pages/Breeds/Breeds'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+
+import { createBrowserRouter } from 'react-router'
+import { RouterProvider } from 'react-router'
+
+import Register from './pages/Register/Register.jsx'
+import Confirm from './pages/Confirm/Confirm.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />,
-    children: [
-      {
-        path: '/breeds/:category',
-        element: <Breeds />
-      }
-    ]
+    element: <Register />
+  },
+  {
+    path: '/auth/confirm/:confirmCode',
+    element: <Confirm />
   }
 ])
 
